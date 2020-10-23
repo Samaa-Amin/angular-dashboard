@@ -1,0 +1,71 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <div  class="col-md-8 d-flex flex-wrap justify-content-between">
+  
+      <!-- name -->
+      <div class="name col-md-6">
+        <label for="name" class="d-block">name</label>
+        <kendo-textbox placeholder="employee name" formControlName="name" [clearButton]="true">
+        </kendo-textbox>
+        <div class="errormsg">
+          <span class="" *ngIf=" myForm.get('name').hasError('required') && myForm.controls.name.touched">
+            required
+          </span>
+        </div>
+      </div>
+      <!-- departement -->
+      <div class="departement col-md-6">
+        <label for="department" class="d-block">Department</label>
+        <kendo-combobox [data]="listItems" [allowCustom]="allowCustom" formControlName="department"
+          placeholder="Department">
+        </kendo-combobox>
+        <div class="errormsg">
+          <span class="" *ngIf=" myForm.get('department').hasError('required') && myForm.controls.department.touched">
+            required
+          </span>
+        </div>
+      </div>
+
+    
+  </div>
+  <div class="col-md-8 my-4 ">
+  
+    <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary m-auto px-5  ">
+      Search
+    </button>
+    <div class="d-flex justify-content-between mt-4" *ngIf="selectedEmployee && found">
+      <p><strong>name:</strong> {{selectedEmployee.name}}</p>
+      <p><strong>code:</strong> {{selectedEmployee.code}}</p>
+      <p><strong>gender:</strong> {{selectedEmployee.gender}}</p>
+      <p><strong>departement:</strong> {{selectedEmployee.departement}}</p>
+      <p><strong>date of birth:</strong> {{selectedEmployee.date}}</p>
+    </div>
+    <div *ngIf="!found && submitted" class="mt-4">
+      <p class="not-found"><strong>Employee Not Found</strong></p>
+    </div>
+  </div>
+
+  </form>
+  <!-- show emoloyee data -->
+  <div class="employees-info">
+    <h3>employees</h3>
+        <table style="width:100%" >
+          <tr>
+            <th> <input type="checkbox"  [(ngModel)]="selectAll" kendoCheckBox/> Select All</th>
+            <th>name</th>
+            <th>code</th>
+            <th>gender</th>
+            <th>departement</th>
+            <th>date of birth</th>
+          </tr>
+          <tr *ngFor="let employee of employees" id={{employee.code}} class="employees" >
+            <td><input type="checkbox" kendoCheckBox  [checked]="selectAll"/></td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.code}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.departement}}</td>
+            <td>{{employee.date}}</td>
+          </tr>
+        </table>
+  </div>
+
+

@@ -1,0 +1,24 @@
+.selected{
+    background-color: #d2d2da;
+}
+table, th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 600px) {
+    table, th, td {
+        font-size: 12px;
+    }
+
+  }
+
+  h3{
+      font-size: 25px;
+      font-weight: 600;
+      text-transform: capitalize;
+      color: #6b99d2;
+  }
+  .not-found{
+      color: #dd583f;
+  }

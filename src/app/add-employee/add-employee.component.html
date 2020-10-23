@@ -1,0 +1,100 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" id="form">
+  <div class="col-md-8 d-flex flex-wrap justify-content-between">
+
+    <!-- name -->
+    <div class="name col-md-6">
+      <label for="name" class="d-block">name</label>
+      <kendo-textbox placeholder="employee name" formControlName="name" [clearButton]="true">
+      </kendo-textbox>
+      <div class="errormsg">
+        <span class="" *ngIf="myForm.get('name').hasError('required') && myForm.controls.name.touched">
+          required
+        </span>
+      </div>
+    </div>
+    <!-- departement -->
+    <div class="departement col-md-6">
+      <label for="department" class="d-block">Department</label>
+      <kendo-combobox [data]="listItems" [allowCustom]="allowCustom" formControlName="department"
+        placeholder="Department">
+      </kendo-combobox>
+      <div class="errormsg">
+        <span class="" *ngIf=" myForm.get('department').hasError('required') &&myForm.controls.department.touched">
+          required
+        </span>
+      </div>
+    </div>
+    <!-- code -->
+    <div class="code col-md-6">
+      <label for="code" class="d-block">code</label>
+      <kendo-numerictextbox placeholder="code" [min]="0" [max]="100" formControlName="code">
+      </kendo-numerictextbox>
+      <div class="errormsg">
+        <span class="" *ngIf="myForm.get('code').hasError('required') && myForm.controls.code.touched">
+          required
+        </span>
+      </div>
+    </div>
+    <!-- date -->
+    <div class="example-wrapper col-md-6">
+      <label for="date">Select date and time:</label>
+
+      <kendo-datetimepicker [format]="format" [(value)]="dateOfBirth">
+      </kendo-datetimepicker>
+      <div class="errormsg">
+        <span class="" *ngIf="!dateOfBirth">
+          required
+        </span>
+      </div>
+    </div>
+
+    <!-- gender -->
+    <div class="gender col-md-6  d-flex justify-content-between mt-3">
+      <div>
+        <input type="radio" name="gender" value="Male" #male formControlName="gender" kendoRadioButton />
+        <label class="k-label d-inline px-3" [for]="male">Male</label>
+      </div>
+      <div>
+        <input type="radio" name="gender" value="Female" #female formControlName="gender" kendoRadioButton />
+        <label class="k-label d-inline px-3" [for]="female">Female</label>
+      </div>
+      <div class="errormsg">
+        <span class="" *ngIf=" myForm.get('gender').hasError('required') && myForm.controls.gender.touched">
+          required
+        </span>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-8 my-4 ">
+
+    <button type="submit" [disabled]="myForm.invalid || !dateOfBirth" class="btn btn-primary m-auto px-5  ">
+      Add
+    </button>
+  </div>
+</form>
+
+<div *ngIf="submited" class="add">
+  <p>Employee Added </p>
+</div>
+
+
+
+
+<!-- <form [formGroup]="form">
+  <div class="example-config">
+    <strong>Value: {{form?.controls.checkIn.value | json}}</strong> |
+    <strong>Valid: {{form?.controls.checkIn.valid}}</strong> |
+    <strong>Touched: {{form?.controls.checkIn.touched}}</strong> |
+    <strong>Pristine: {{form?.controls.checkIn.pristine}}</strong> |
+    <strong>Errors: {{form?.controls.checkIn.errors | json}}</strong>
+  </div>
+  <label>
+    <div>
+      Select check-in date and time:
+    </div>
+    <kendo-datetimepicker required formControlName="checkIn" [min]="min">
+    </kendo-datetimepicker>
+  </label>
+  <button type="button" class="k-button" (click)="form.reset()">Reset</button>
+</form> -->

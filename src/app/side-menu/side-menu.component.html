@@ -1,0 +1,19 @@
+<div class="d-flex">
+
+    <nav class="col-5 col-sm-3 col-md-2 p-0">
+        <header class="p-3">
+            <h5>Navigation model</h5>
+        </header>
+        <ul class="p-0">
+            <li routerLink="/dashBoard" routerLinkActive="active">
+                <a class="p-3" >Dash board</a>
+            </li>
+            <!-- <li><a routerLink="/dashBoard">Add employee</a></li> -->
+            <li routerLink="/dumy" routerLinkActive="active"><a class="p-3" >Dumy link</a></li>
+        </ul>
+    </nav>
+    <div class="col-10">
+        <router-outlet></router-outlet>
+        <!-- <h4>try add some employees then serch for them!</h4> -->
+    </div>
+</div>

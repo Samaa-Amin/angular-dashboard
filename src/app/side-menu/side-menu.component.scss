@@ -1,0 +1,27 @@
+nav{
+    min-height: 150vh;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    h5{
+        color: #6b99d2;
+    }
+    li{
+        list-style: none;
+        padding: 20px 0px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+        a{
+            // text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+
+li:focus{
+    outline-style: none;
+    border: none;
+}
+.active{
+    background-color: white;
+}

@@ -1,0 +1,20 @@
+.user-info_img{
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+        max-width: 100%;
+    }
+}
+
+.bg-light {
+    background-color:transparent !important;
+    border-bottom: 1px solid #ddd;
+    // box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    z-index: 9;
+}
+button{
+    background: none;
+    border: none;
+    color: black;
+}
