@@ -13,8 +13,8 @@ const routes: Routes = [
     { path: "searchEmployee", component: SearchEmployeeComponent },
 
   ] },
-  { path: "dumy", component: DummyComponentComponent},
-  { path: 'orders', loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule) },
+  // { path: "dumy", component: DummyComponentComponent},
+  { path: 'dummy-link', loadChildren: () => import('./dummy-link/dummy-link.module').then(m => m.DummyLinkModule) },
 ];
 
 @NgModule({
